@@ -1,0 +1,22 @@
+schtasks /change /tn shutdown /st 17:45
+schtasks /query /tn "喝水" /fo list /v
+schtasks -delete -tn "shutdown"
+schtasks -create -tn "喝水" -tr "C:\Users\zhao\Desktop\不可删\heshui.bat" -sc minute -mo 30 -st 2023-04-04 11:30:00
+schtasks -change -tn "喝水" -st 11:30
+
+schtasks /create /sc hourly /mo 2 /tn "MyTask" /tr "C:\MyProgram.exe"
+	该命令将创建一个名为“MyTask”的任务，它将每隔2小时执行一次“C:\MyProgram.exe”程序。
+
+schtasks命令的sc参数可以指定任务的调度类型
+1、MINUTE：每隔指定分钟执行一次任务。
+2、HOURLY：每隔指定小时执行一次任务。
+3、DAILY：每天在指定时间执行任务。
+4、WEEKLY：每周在指定时间执行任务。
+5、MONTHLY：每月在指定日期和时间执行任务。
+6、ONCE：只执行一次任务。
+7、ONSTART：在系统启动时执行任务。
+8、ONLOGON：在用户登录时执行任务。
+9、ONIDLE：在计算机处于空闲状态时执行任务。
+
+schtasks命令的st参数可以指定任务的调度类型
+指定运行任务的开始时间。时间格式为 HH:mm (24 小时时间)，例如 14:30表示 2:30 PM。
